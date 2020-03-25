@@ -1,5 +1,5 @@
 # DetGP
-Codes for the AAAI 2020 paper: Dynamic Embedding on Textual Networks via a Gaussian Process.
+Code for the AAAI 2020 paper: Dynamic Embedding on Textual Networks via a Gaussian Process.
 
 
 This repository contains source code necessary to reproduce the results presented in the following paper:
@@ -9,10 +9,19 @@ This project is maintained by [Pengyu Cheng](https://linear95.github.io/). Feel 
 
 ## Dependencies: 
 This code is written in python. The dependencies are:
-* Python 3.6
-* Pytorch>=0.4 (0.4.1 is recommended)
-* NLTK>=3
+* Python 2.7
+* Tensorflow>=1.13 (1.13.1 is recommended)
 
+## Download Data
+Download the folder `./datasets/` from the [CANE](https://github.com/thunlp/CANE) repository, which includes *Cora* and *HepTh* datasets.
+
+## Run the code
+To reproduce the link prediction results of DetGP, run the command:
+```
+python train_link_predict.py
+```
+
+The parameters for experiments can be set in `config.py`, *e.g.*, the choice of dataset, the train-test split ratios.
 
 ## Citation 
 Please cite our AAAI paper if you found the code useful.
