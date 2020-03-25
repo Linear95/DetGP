@@ -8,7 +8,7 @@ num_epoch = 300
 report_epoch_num = 1
 eval_epoch_num = 5 * report_epoch_num
 
-GPU_USAGE = 0.09
+GPU_USAGE = 0.5
 GPU_ID = 0
 
 embed_size = 200
@@ -16,8 +16,8 @@ lr = 1e-3
 #ratio = 0.95
 dataset_choice = 'cora' #'zhihu' 'cora' 'DBLP'
 
-node_split_ratio = 0.1
-edge_split_ratio = 0.55
+node_split_ratio = 0.1    # proportion of nodes
+edge_split_ratio = 0.55   # proportion of edgesused in training
 
 random_seed = 2019   #best is 1855
 
@@ -30,7 +30,7 @@ elif dataset_choice == 'DBLP':
 elif dataset_choice == 'HepTh':
     inducing_num = 20
 
-
+    
 encoder_type = 'wavg'  # 'dmte' 'wavg'
 kernel_type = 'linear'
 trans_order = 3

@@ -21,6 +21,11 @@ To reproduce the link prediction results of DetGP, run the command:
 python train_link_predict.py
 ```
 
+To reproduce the node classification results of DetGP, run the command:
+```
+python train_node_classify.py
+```
+
 The parameters for experiments can be set in `config.py`, *e.g.*, the choice of dataset, the train-test split ratios.
 
 ## Citation 
