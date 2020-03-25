@@ -1,6 +1,4 @@
 # DetGP
-Code for the AAAI 2020 paper: Dynamic Embedding on Textual Networks via a Gaussian Process.
-
 
 This repository contains source code necessary to reproduce the results presented in the following paper:
 * [*Dynamic Embedding on Textual Networks via a Gaussian Process*](https://arxiv.org/abs/1910.02187) (AAAI 2020)
@@ -29,7 +27,7 @@ python train_node_classify.py
 The parameters for experiments can be set in `config.py`, *e.g.*, the choice of dataset, the train-test split ratios.
 
 ## Citation 
-Please cite our AAAI paper if you found the code useful.
+Please cite our AAAI 2020 paper if you found the code useful.
 
 ```latex
 @misc{cheng2019dynamic,
