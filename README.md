@@ -1,6 +1,9 @@
 # DetGP
 
-This repository contains source code necessary to reproduce the results presented in the following paper:
+
+This repository contains source code to reproduce the results of DetGP: **D**ynamic **E**mbedding on **T**extual Networks via a **G**aussian **P**rocess.
+
+Here is the link to our paper:
 * [*Dynamic Embedding on Textual Networks via a Gaussian Process*](https://arxiv.org/abs/1910.02187) (AAAI 2020)
 
 This project is maintained by [Pengyu Cheng](https://linear95.github.io/). Feel free to contact pengyu.cheng@duke.edu for any relevant issues.
