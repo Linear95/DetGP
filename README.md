@@ -12,6 +12,7 @@ This project is maintained by [Pengyu Cheng](https://linear95.github.io/). Feel 
 This code is written in python. The dependencies are:
 * Python 2.7
 * Tensorflow>=1.13 (1.13.1 is recommended)
+* networkx
 
 ## Download Data
 Download the folder `./datasets/` from the [CANE](https://github.com/thunlp/CANE) repository, which includes *Cora* and *HepTh* datasets.
@@ -27,7 +28,7 @@ To reproduce the node classification results of DetGP, run the command:
 python train_node_classify.py
 ```
 
-The parameters for experiments can be set in `config.py`, *e.g.*, the choice of dataset, the train-test split ratios.
+The parameters for experiments can be set in `config.py`, *e.g.*, the choice of datasets, the train-test split ratios.
 
 ## Citation 
 Please cite our AAAI 2020 paper if you found the code useful.
