@@ -15,9 +15,9 @@ os.environ['CUDA_VISIBLE_DEVICES'] = str(config.GPU_ID)
 
 #load data
 dataset_choice = config.dataset_choice
-graph_path = '../datasets/%s/graph.txt' % dataset_choice  # train_
-text_path = '../datasets/%s/data.txt' % dataset_choice
-group_path = '../datasets/%s/group.txt' % dataset_choice
+graph_path = './datasets/%s/graph.txt' % dataset_choice  # train_
+text_path = './datasets/%s/data.txt' % dataset_choice
+group_path = './datasets/%s/group.txt' % dataset_choice
 
 model_name = 'DetGP'
 log_save_path = './logs/'

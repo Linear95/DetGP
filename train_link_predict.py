@@ -15,9 +15,9 @@ os.environ['CUDA_VISIBLE_DEVICES'] = str(config.GPU_ID)
 
 #load data
 dataset_choice = config.dataset_choice
-graph_path = '../datasets/%s/graph.txt' % dataset_choice  # train_
-text_path = '../datasets/%s/data.txt' % dataset_choice
-group_path = '../datasets/%s/group.txt' % dataset_choice
+graph_path = './datasets/%s/graph.txt' % dataset_choice  # train_
+text_path = './datasets/%s/data.txt' % dataset_choice
+group_path = './datasets/%s/group.txt' % dataset_choice
 
 model_name = 'DetGP'
 log_save_path = './logs/'
@@ -34,7 +34,7 @@ def eval_link_prediction(sess, model, model_name):
     seen_nodes = data.train_graph.nodes()
     
     auc_scores = []
-    negative_samples = data.negative_sampling(data.test_edges)
+    negative_samples = negative_sampling(data.graph, data.test_edges)
     for node_a, node_b, node_n in negative_samples:
         if node_a in seen_nodes and node_b in seen_nodes: 
             dot1 = np.dot(node_emb[node_a], node_emb[node_b])

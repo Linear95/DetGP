@@ -11,14 +11,13 @@ from tools import edges_to_undirect
 
 import config
 
+
 class DataLoader():
     def __init__(self, text_path, graph_path, edge_split_ratio):
-
         self.graph, self.train_graph, self.test_graph = self.load_graph(graph_path, edge_split_ratio)
         self.text, self.num_vocab, self.num_nodes = self.load_text(text_path)
         self.train_edges = edges_to_undirect(self.num_nodes, self.train_graph.edges())
         self.test_edges = edges_to_undirect(self.num_nodes, self.test_graph.edges())
-
     
     def get_adj_list(self,edges, node_num):
         adj_list = []
@@ -38,7 +37,6 @@ class DataLoader():
         np.random.seed(config.random_seed)
         graph_file = open(graph_path, 'rb').readlines()
         for line in graph_file:
-            # print(line)
             edge = map(int, line.strip().split('\t'))
             total_graph.add_edge(edge[0],edge[1])
             
@@ -62,25 +60,26 @@ class DataLoader():
     def subgraph_edges(self, node_list):
         subg_edges = self.train_graph.subgraph(node_list).edges()
         return edges_to_undirect(self.num_nodes, subg_edges)
-    
-    def negative_sampling(self, edges):
+
+
+    def negative_sampling(self, graph, edges):
         node1, node2 = zip(*edges)
         sample_edges = []
         #np.random.seed(config.random_seed)
         for i in range(len(edges)):
-            neg_node = np.random.randint(self.num_nodes)
-            while neg_node in self.graph.neighbors(node1[i]):  # total or train?
-                # warning: can not deal with fully connected node
-                neg_node = np.random.randint(self.num_nodes)
+            neg_node = random.choice(list(graph.nodes))
+            while neg_node in graph.neighbors(node1[i]):  
+                neg_node = random.choice(list(graph.nodes))
             sample_edges.append([node1[i], node2[i], neg_node])
         return sample_edges
 
+    
     
     def generate_batches(self, mode=None):
         num_batch = len(self.train_edges)//config.batch_size
         edges = self.train_edges
         random.shuffle(edges)
         sample_edges = edges[:num_batch*config.batch_size]
-        sample_edges = self.negative_sampling(sample_edges)
+        sample_edges = self.negative_sampling(self.train_graph, sample_edges)
         batches = [sample_edges[i*config.batch_size:(i+1)*config.batch_size] for i in range(num_batch) ]
         return batches

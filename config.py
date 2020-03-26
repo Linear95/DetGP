@@ -3,23 +3,23 @@ neg_table_size = 1000000
 NEG_SAMPLE_POWER = 0.75
 
 batch_size = 128
-num_epoch = 300
+num_epoch = 500
 
 report_epoch_num = 1
-eval_epoch_num = 5 * report_epoch_num
+eval_epoch_num = 10 * report_epoch_num
 
 GPU_USAGE = 0.5
 GPU_ID = 0
 
 embed_size = 200
-lr = 1e-3 
-#ratio = 0.95
+lr = 1e-3
+
 dataset_choice = 'cora' #'zhihu' 'cora' 'DBLP'
 
-node_split_ratio = 0.1    # proportion of nodes
-edge_split_ratio = 0.55   # proportion of edgesused in training
+node_split_ratio = 0.5    # proportion of nodes
+edge_split_ratio = 0.35   # proportion of edgesused in training
 
-random_seed = 2019   #best is 1855
+random_seed = 1855
 
 if dataset_choice == 'cora':
     inducing_num = 20
